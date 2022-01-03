@@ -38,7 +38,7 @@
 \fancyhf{}
 \lhead{Name: \textbf{William Zhong}, Username: \textbf{wzsuperb}, ID: \textbf{40819}}
 \rhead{USAMTS, year 33, round 3}
-\rfoot{December, 2021}
+\rfoot{January 3, 2022}
 
 
 %\title{In-class Quiz}
@@ -101,18 +101,37 @@ draw((4,-5)--(6,-5));
 draw((1,-5)--(1,-6));
 draw((3,-6)--(5,-6));
 \end{asy}
-\end{center}
+\end{center} 
 
 \newpage
 \section{Problem 2/3/33}
 
-\begin{center}
-\begin{tikzpicture}[scale=.8]
-\draw[dashed, gray] (0,0) grid (10,10);
-\draw (0,0) -- (0,5) -- (4,8) -- (10,0)--cycle;
-\draw [blue] (0,5) -- (10,0);
-\end{tikzpicture}
-\end{center}
+It is \textbf{NOT} possible for Sydney to reach $(2021, 2020)$.
+
+\begin{proof}
+If we can reflect Sydney from $(0, 0)$ to $(1, 0)$, then it's easy to reflect Sydney from $(1, 0)$ to $(2021, 2020)$. We first reflect $(1, 0)$ to $(2021, 0)$ over line $x= \frac{1+ 2021}{2}= 1011$, then reflect $(2021, 0)$ to $(2021, 2020)$ over line $y=\frac{0+ 2020}{2}= 1010$.
+
+In fact, if we can reflect Sydney from $(0, 0)$ to $(m, n)$, where $m$ and $n$ are integers of opposite parities, it's easy to reflect Sydney from $(m, n)$ to $(2021, 2020)$.  There are 2 cases: 1) $m$ is odd, $n$ is even; 2) $m$ is even, $n$ is odd. For case 1, we first reflect $(m, n)$ to $(2021, n)$ over line $x= \frac{m+ 2021}{2}$, then reflect $(2021, n)$ to $(2021, 2020)$ over line $y=\frac{n+ 2020}{2}$. Since $m$ is  odd and $n$ is even, $\frac{m+ 2021}{2}$ and $\frac{n+ 2020}{2}$ are integers. For case 2, we first reflect $(m, n)$ to $(2020, n)$ over line  $x= \frac {m+ 2020}{2}$, then reflect $(2020, n)$ to $(2020, 2019)$ over line $y= \frac{n +2019}{2}$. Lastly, we reflect $(2020, 2019)$ to $(2021, 2020)$ over the line that connects $(2020, 2020)$ and $(2021, 2019)$. 
+
+We divide the lattice points in the Cartesian plane into 2 categories: category $A$ consists of all points $(m, n)$ where $m$ and $n$ are of the same parity, while category $B$ consists of all points $(u, v)$ where $u$ and $v$ are of opposite parities. We show that it is \textbf{NOT}  possible to reflect Sydney from $(m, n)$ to any point $(u, v)$ in category $B$.
+
+Assume we can reflect Sydney from point $A (m, n)$ to point $B (u, v)$ over a line $l$, then $l$ must pass through the midpoint of line $AB$, and $l$ is perpendicular to $AB$. The midpoint of $AB$ is $(\frac{m+u}{2}, \frac{n+v}{2})$, and the slope of $AB$ is $\frac{v-n}{u-m}$. Since line $l$ is perpendicular to $AB$, the slope of line $l$ is $-\frac{u-m}{v-n}=\frac{m-u}{v-n}$. 
+
+In the following, we show that line $l$ doesn't pass through any lattice point.
+
+Suppose $l$ passes through a lattice point $(a, b)$ other than the midpoint of $AB$, we then have 
+\begin{align*}
+&\frac{m-u}{v-n}= \frac{\frac{n+v}{2}-b} {\frac{u+m}{2}-a}=\frac{n+v-2b}{u+m-2a}\\
+\Rightarrow \quad &(m -u)(u+m-2a)= (v-n)(n+v-2b)\\
+\Rightarrow \quad &m^2-u^2 -2a(m-u)= v^2 -n^2 -2b(v-n)\\
+\Rightarrow \quad &m^2+n^2+2b(v-n)-2a(m-u)=u^2+v^2
+\end{align*}
+
+In the last equation, the left side $m^2+n^2+2b(v-n)-2a(m-u)$ is even given $m$ and $n$ are of the same parity, and the right side $u^2 +v^2$ is odd given $u$ and $v$ are of opposite parities. This results a contradiction. Therefore, line $l$ does not pass through any lattice point.
+
+In general, it's not possible to reflect points from category $A$ to points in category $B$. Sydney's origin is $(0, 0)$ which belongs to category $A$, while $(2021, 2020)$ belongs to category $B$. It's not possible to reflect Sydney to $(2021, 2020)$.
+\end{proof}
+
 
 \newpage
 \section{Problem 3/3/33}

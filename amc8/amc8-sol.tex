@@ -1,0 +1,93 @@
+\documentclass[11pt, oneside]{article}   	% use "amsart" instead of "article" for AMSLaTeX format
+
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=20mm,
+ top=30mm,
+ bottom=25mm, 
+ }
+ 
+%\usepackage{geometry}                		% See geometry.pdf to learn the layout options. There are lots.
+%\geometry{letterpaper}                   		% ... or a4paper or a5paper or ... 
+%\geometry{landscape}                		% Activate for rotated page geometry
+%\usepackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}				% Use pdf, png, jpg, or eps§ with pdflatex; use eps in DVI mode
+								% TeX will automatically convert eps --> pdf in pdflatex		
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{fancyhdr}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{enumerate}
+\usepackage{arcs}
+\usepackage{array}
+\usepackage{tabularx} 
+\usepackage{tikz}
+%SetFonts
+
+%SetFonts
+
+\usepackage[inline]{asymptote}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Name: \textbf{William Zhong}}
+%\rhead{}
+%\rfoot{January 4, 2022}
+
+\title{Solutions for Selected AMC8 Problems}
+\author{William Zhong}
+\date{January 4, 2022}							% Activate to display a given date or no date
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+\item  (AMC8 2015, p25) One-inch squares are cut from the corners of this 5 inch square. What is the area in square inches of the largest square that can fit into the remaining space?
+
+\begin{center}
+\begin{asy}
+size(5cm);
+draw((0,0)--(5, 0)--(5, 5)--(0, 5)--cycle);
+filldraw((0,0)--(1, 0)--(1, 1)--(0, 1)--cycle, grey);
+filldraw((0,4)--(1, 4)--(1, 5)--(0, 5)--cycle, grey);
+filldraw((4,0)--(5, 0)--(5, 1)--(4, 1)--cycle, grey);
+filldraw((4,4)--(5, 4)--(5, 5)--(4, 5)--cycle, grey);
+draw((0, 3.618)--(3.618, 5)--(5, 1.372)--(1.372, 0)--cycle, blue);
+dot((0, 4));
+dot((0, 3.618));
+dot((1,4));
+dot((1, 5));
+dot((3.618, 5));
+
+label("$A$",(0, 3.618),W);
+label("$B$",(0, 4),W);
+label("$C$",(1, 4),S);
+label("$D$",(1, 5),N);
+label("$E$",(3.618, 5),N);
+label("$F$",(0, 5),W);
+
+
+\end{asy}
+\end{center} 
+
+\textbf{Solution:}
+As illustrated above, the blue square is the largest square we want. It is attached to the corner square. The idea is to get the area of the blue square by subtracting the area of four corner triangles from the big square.
+
+Suppose $AF = a, EF= b$, we have $a+b= 5$. To get the area of $\triangle AFE$, we have to calculate $ab$, which will be done through similar triangles.
+
+Since $\triangle ABC \sim \triangle CDE$, we have
+\[\frac{AB}{CD} = \frac {BC}{DE} \quad \Rightarrow \quad \frac{a-1}{1}=\frac{1}{b-1}\quad \Rightarrow \quad (a-1)(b-1)= 1\quad \Rightarrow \quad ab = a+b.\]
+
+Therefore, $ab = a+b = 5$. The area of the blue square is $25- 2ab = 25-10 = 15$.
+
+
+
+
+\end{enumerate}
+\end{document}  

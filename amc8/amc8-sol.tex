@@ -41,13 +41,14 @@
 %\rfoot{January 4, 2022}
 
 \title{Solutions for Selected AMC8 Problems}
-\author{William Zhong}
+\author{wzuuzw}
 \date{January 4, 2022}							% Activate to display a given date or no date
 
 \begin{document}
 \maketitle
 
 \begin{enumerate}
+\setlength\itemsep{3em}
 \item  (AMC8 2015, p25) One-inch squares are cut from the corners of this 5 inch square. What is the area in square inches of the largest square that can fit into the remaining space?
 
 \begin{center}
@@ -79,14 +80,45 @@ label("$F$",(0, 5),W);
 \textbf{Solution:}
 As illustrated above, the blue square is the largest square we want. It is attached to the corner square. The idea is to get the area of the blue square by subtracting the area of four corner triangles from the big square.
 
-Suppose $AF = a, EF= b$, we have $a+b= 5$. To get the area of $\triangle AFE$, we have to calculate $ab$, which will be done through similar triangles.
+Suppose $AF = a, EF= b$, we have $a+b= 5$. To get the area of $\triangle AFE$, we have to calculate $ab$, which is done through similar triangles.
 
 Since $\triangle ABC \sim \triangle CDE$, we have
 \[\frac{AB}{CD} = \frac {BC}{DE} \quad \Rightarrow \quad \frac{a-1}{1}=\frac{1}{b-1}\quad \Rightarrow \quad (a-1)(b-1)= 1\quad \Rightarrow \quad ab = a+b.\]
 
 Therefore, $ab = a+b = 5$. The area of the blue square is $25- 2ab = 25-10 = 15$.
 
+\item (AMC8 2016, p22) Rectangle $DEFA$ is a $3\times 4$ rectangle with $DC=CB=BA$. What is the area of the ``bat wings" (shaded area)?
 
+\begin{center}
+\begin{asy}
+size(5cm);
+draw((0, 0)--(3, 0)--(3, -4)--(0, -4)--cycle);
+filldraw((1, 0)--(1.5, -1)--(0, -4)--cycle, gray);
+filldraw((2, 0)--(1.5, -1)--(3, -4)--cycle, gray);
+label("$D$",(0, 0),N);
+label("$C$",(1, 0),N);
+label("$B$",(2, 0),N);
+label("$A$",(3, 0),N);
+label("$E$",(0, -4),S);
+label("$F$",(3, -4),S);
+label("$G$",(1.5, -1.2),S);
+dot((1.5, -1));
+draw((1.5, 0)--(1.5, -4), dashed+blue);
+label("$x$",(1.5, -0.5),E);
+label("$y$",(1.5, -2.5),E);
+\end{asy}
+\end{center}
+
+\textbf{Solution:}
+The idea is to subtract the area of 4 triangles (white) from the area of the big rectangle. $S_{\triangle DCE} = S_{\triangle ABF}= 2$. We need to calculate the area of $\triangle BCG$ and $\triangle EFG$.
+
+Suppose the heights of $\triangle BCG$ and $\triangle EFG$ are $x$ and $y$, respectively. Since $\triangle BCG \sim \triangle EFG$,  we have 
+\[\frac{x}{y}=\frac{BC}{EF}=\frac{1}{3} \quad \Rightarrow \quad y=3x.\]
+
+Together with $x+y=4$, we have $x=1, y=3$. 
+
+Therefore, $S_{\triangle BCG}=\frac{x}{2}=\frac{1}{2}$,  $S_{\triangle EFG}=\frac{3y}{2}=\frac{9}{2}$, and the shaded area is
+\[12-2-2-\frac{1}{2}-\frac{9}{2}=3.\]
 
 
 \end{enumerate}

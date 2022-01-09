@@ -120,6 +120,106 @@ Together with $x+y=4$, we have $x=1, y=3$.
 Therefore, $S_{\triangle BCG}=\frac{x}{2}=\frac{1}{2}$,  $S_{\triangle EFG}=\frac{3y}{2}=\frac{9}{2}$, and the shaded area is
 \[12-2-2-\frac{1}{2}-\frac{9}{2}=3.\]
 
+\item (AMC8 2020, p21) 
+
+A game board consists of 64 squares that alternate in color between black and white. The figure below shows square $P$ in the bottom row and square $Q$ in the top row. A marker is placed at $P$. A step consists of moving the marker onto one of the adjoining white squares in the row above. How many 7-step paths are there from $P$ to $Q$? (The figure shows a sample path.)
+\begin{center}
+
+
+\begin{asy}
+size(5cm);
+for(int i=0; i<9; ++i){
+    draw((0, -i)--(8, -i));
+    draw((i, 0)--(i, -8));
+}
+
+for(int j=0; j<8; ++j)
+for(int i=0; i<8; ++i) {
+    if ((i+j)%2 == 1) {
+        filldraw((i, -j)--(i+1, -j)--(i+1, -j-1)--(i, -j-1)--cycle, gray);
+    }
+}
+
+real [][] c= {{6.5, -0.5}, {5.5, -1.5}, {6.5, -2.5}, {5.5, -3.5}, {4.5, -4.5}, {5.5, -5.5}, {6.5, -6.5}};
+for(int i=0; i<7; ++i){
+    real x=c[i][0];
+    real y=c[i][1];
+    draw(circle((x, y), 0.4));
+}
+label("$P$", (5.5, -7.5));
+label("$Q$", (6.5, -0.5));
+label("$A$", (4.5, -6.5));
+label("$B$", (6.5, -6.5));
+label("$C$", (5.5, -1.5));
+label("$D$", (7.5, -1.5));
+\end{asy}
+\end{center}
+
+\textbf{Solution:}
+We solve this problem by dynamic programming. A key observation is that if he number of paths from $Q$ to $A$  is $f(A)$, and the number of path from  $Q$ to $B$ is $f(B)$, then the total number of paths from $Q$ to $P$ is $f(A)+f(B)$. Apparently, $f(Q)=1$.
+
+For the 2 adjacent white squares $C$ and $D$ below $Q$, we have $f(C) = f(Q) = 1, f(D) = f(Q) = 1$.
+
+In order to reach $P$ in 7 steps from $Q$, we must move downward for every step. Therefore, starting from $Q$, there is no path to the 3 white squares in the left of the top row. Now, from top to bottom, we are able to mark the number of paths from $Q$ to every white square, as illustrated below. The number of paths from $Q$ to $P$ is $14 + 14 = 28$.
+
+\begin{center}
+\begin{asy}
+size(5cm);
+for(int i=0; i<9; ++i){
+    draw((0, -i)--(8, -i));
+    draw((i, 0)--(i, -8));
+}
+
+for(int j=0; j<8; ++j)
+for(int i=0; i<8; ++i) {
+    if ((i+j)%2 == 1) {
+        filldraw((i, -j)--(i+1, -j)--(i+1, -j-1)--(i, -j-1)--cycle, gray);
+    }
+}
+
+real [][] c= {{6.5, -0.5}, {5.5, -1.5}, {6.5, -2.5}, {5.5, -3.5}, {4.5, -4.5}, {5.5, -5.5}, {6.5, -6.5}};
+for(int i=0; i<7; ++i){
+    real x=c[i][0];
+    real y=c[i][1];
+    draw(circle((x, y), 0.4));
+}
+label("$28$", (5.5, -7.5));
+label("$1$", (6.5, -0.5));
+label("$0$", (0.5, -0.5));
+label("$0$", (2.5, -0.5));
+label("$0$", (4.5, -0.5));
+label("$0$", (1.5, -1.5));
+label("$0$", (3.5, -1.5));
+label("$1$", (5.5, -1.5));
+label("$1$", (7.5, -1.5));
+label("$0$", (0.5, -2.5));
+label("$0$", (2.5, -2.5));
+label("$1$", (4.5, -2.5));
+label("$2$", (6.5, -2.5));
+
+label("$0$", (1.5, -3.5));
+label("$1$", (3.5, -3.5));
+label("$3$", (5.5, -3.5));
+label("$2$", (7.5, -3.5));
+
+label("$0$", (0.5, -4.5));
+label("$1$", (2.5, -4.5));
+label("$4$", (4.5, -4.5));
+label("$5$", (6.5, -4.5));
+
+label("$0$", (1.5, -5.5));
+label("$5$", (3.5, -5.5));
+label("$9$", (5.5, -5.5));
+label("$5$", (7.5, -5.5));
+
+label("$0$", (0.5, -6.5));
+label("$5$", (2.5, -6.5));
+label("$14$", (4.5, -6.5));
+label("$14$", (6.5, -6.5));
+\end{asy}
+\end{center}
+
+
 
 \end{enumerate}
 \end{document}  

@@ -253,7 +253,7 @@ Average height &  $\underline{\quad}.2$ meters\\
 \end{center}
 
 \textbf{Solution:}
-We solve this problem using tree diagram. Because the heights are integers, Tree 1 and Tree 3 should have the same height of 22 meters. We show the tree diagram as follows.
+We solve this problem using tree diagram. Because the heights are integers, both Tree 1 and Tree 3 should be 22 meters. We show the tree diagram as follows.
 
 \begin{center}
 \begin{asy}
@@ -293,7 +293,25 @@ draw((-1, -2)--(-1, -3));
 \end{asy}
 \end{center}
 
-Among the 3 possible total values 88, 121, and 187, only 121 results an average of 24.2, which is the correct answer!
+Among the 3 possible values 88, 121, and 187, only 121 results an average of 24.2, which is the correct answer!
+
+\item (AMC8 2015, p19) A triangle with vertices as $A=(1, 3), B=(5, 1),$ and $C=(4,4)$ is plotted on a $6\times 5$ grid. What fraction of the grid is covered by the triangle?
+
+\begin{center}
+\begin{asy}
+size(5cm);
+import math;
+add(grid(6,5));
+draw((0,0)--(7,0), arrow=Arrow());
+draw((0,0)--(0,6), arrow=Arrow());
+draw((1,3)--(4,4)--(5,1)--cycle);
+label("$A$", (1,3), SW);
+label("$B$", (5,1), SE);
+label("$C$", (4,4), NE);
+label("$x$", (7,0), S);
+label("$y$", (0,6), W);
+\end{asy}
+\end{center}
 
 \item  Test
 \begin{center}

@@ -313,6 +313,50 @@ label("$y$", (0,6), W);
 \end{asy}
 \end{center}
 
+\item (AMC8 2022, p25) A cricket randomly hops between $4$ leaves, on each turn hopping to one of the other $3$ leaves with equal probability. After $4$ hops what is the probability that the cricket has returned to the leaf where it started?
+\begin{center}
+\includegraphics[scale=0.3]{imgs/2022_AMC_8_Problem_25.jpeg}
+\end{center}
+
+\textbf{Solution:}
+
+We solve this problem using tree diagram and dynamic programming. We analyze this problem by stages.
+
+Stage 1): If the cricket jumps 1 hop, there are 3 different ways. \\
+Stage 2): If the cricket jumps 2 hops, there are $3^2=9$ different ways. Among the 9 ways, there are 3 ways leading to the start leaf.  The rest 6 ways don't lead to the start leaf. We illustrate the 2-hop scenario in the tree diagram, where black nodes represent the start leaf, and white nodes represent other leaves.\\
+\begin{center}
+\begin{asy}
+size(6cm);
+for (int i=0; i<9; ++i) {
+    int x = (int) (i/3);
+    draw((i,0)--(x*3+1,2));
+    if (i%3 == 0) { 
+        filldraw(circle((i, 0), 0.2), black, black); 
+    } else {
+        filldraw(circle((i, 0), 0.2), white, black);
+    }
+}
+
+for (int i=0; i<3; ++i) {
+    draw((i*3+1,2)--(4,4));
+    filldraw(circle((i*3+1, 2), 0.2), white, black);
+}
+
+filldraw(circle((4,4),0.2), black, black);
+
+draw((-1,-0.5)--(10,-0.5), dashed);
+draw((-1,1.5)--(10,1.5), dashed);
+label("\small 1 hop", (8.6,2.2), E);
+label("\small 2 hops", (8.6,0.2), E);
+\end{asy}
+\end{center}
+
+Stage 3): If the cricket jump 3 hops, there are $3^3=27$ different ways.  A key observation is: Only a path that doesn't lead to the start leaf in stage 2 can have a path leading to the start leaf in stage 3. Among the 27 ways, there are 6 ways leading to the start leaf. The rest 21 ways don't lead to the start leaf, obviously.\\
+Stage 4): If the cricket jumps 4 hops, there are $3^4=81$ different ways. From stage 3, we know that there are 21 ways leading to the start leaf.
+
+
+Therefore, the probability is $\frac{21}{81}=\frac{7}{27}$.
+
 \item  Test
 \begin{center}
 \begin{asy}

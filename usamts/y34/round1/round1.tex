@@ -1,0 +1,120 @@
+\documentclass[11pt, oneside]{article}   	% use "amsart" instead of "article" for AMSLaTeX format
+
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=20mm,
+ top=30mm,
+ bottom=25mm, 
+ }
+ 
+%\usepackage{geometry}                		% See geometry.pdf to learn the layout options. There are lots.
+%\geometry{letterpaper}                   		% ... or a4paper or a5paper or ... 
+%\geometry{landscape}                		% Activate for rotated page geometry
+%\usepackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}				% Use pdf, png, jpg, or eps§ with pdflatex; use eps in DVI mode
+								% TeX will automatically convert eps --> pdf in pdflatex		
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{fancyhdr}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{enumerate}
+\usepackage{arcs}
+\usepackage{array}
+\usepackage{tabularx} 
+\usepackage{tikz}
+%SetFonts
+
+%SetFonts
+
+\usepackage[inline]{asymptote}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Name: \textbf{William Zhong}, Username: \textbf{wzsuperb}, ID: \textbf{40819}}
+\rhead{USAMTS, year 34, round 1}
+\rfoot{September 30, 2022}
+
+
+\begin{document}
+%\maketitle
+
+\section{Problem 1/1/34}
+\vspace{20pt}
+
+\begin{center}
+\begin{asy}
+size(15cm);
+draw((0, 0)--(19, 0));
+
+for(int i=0; i<20; ++i) {
+    dot((i, 0)); 
+}
+
+draw(arc((7.5, 0), 2.5, 0, 180));
+draw(arc((7.5, 0), 0.5, 0, -180));
+draw(arc((12.5, 0), 0.5, 0, -180));
+draw(arc((6.5, 0), 0.5, 0, 180));
+draw(arc((8.5, 0), 0.5, 0, 180));
+
+draw(arc((7.5, 0), 1.5, 0, -180));
+draw(arc((12.5, 0), 1.5, 0, -180));
+draw(arc((12.5, 0), 2.5, 0, -180));
+
+draw(arc((2.5, 0), 2.5, 0, -180));
+draw(arc((7.5, 0), 3.5, 0, 180));
+draw(arc((2.5, 0), 1.5, 0, -180));
+draw(arc((2.5, 0), 0.5, 0, -180));
+
+draw(arc((15.5, 0), 3.5, 0, 180));
+draw(arc((15.5, 0), 2.5, 0, 180));
+draw(arc((15.5, 0), 1.5, 0, 180));
+draw(arc((15.5, 0), 0.5, 0, 180));
+
+draw(arc((1.5, 0), 1.5, 0, 180));
+draw(arc((1.5, 0), 0.5, 0, 180));
+draw(arc((17.5, 0), 1.5, 0, -180));
+draw(arc((17.5, 0), 0.5, 0, -180));
+\end{asy}
+\end{center} 
+
+\newpage
+\section{Problem 2/1/34}
+
+
+\newpage
+\section{Problem 3/1/34}
+
+
+\newpage
+\section{Problem 4/1/34}
+Winnie should win \$27. 
+
+\begin{proof}
+Winnie's strategy is to put the greatest card available to the pile that has the greater sum. Assuming the two piles are pile $A$ and pile $B$, and  Grogg places the first card with number $k$ to pile $A$, the sums of the 2 piles become $k$ and $0$, respectively. Winnie will then place the greatest card available to the same pile $A$ to make the difference larger. To reduce the difference, Grogg has to choose the next greatest card and put it into the other pile $B$. 
+
+Going forward, Winnie chooses the greatest card available and put it into pile $A$, and Grogg puts the next largest card to pile $B$. The game ends when all cards get put into both piles. 
+
+The sum of pile $A$ should always be greater than the sum of pile $B$, since Grogg puts the first card into pile $A$ and in each round afterwards Grogg always puts a smaller card to pile $B$.
+
+To make the difference minimal, Grogg has to choose the smallest card first, e.g. $k=1$. Winnie then chooses  the greatest card with the number 50 and put it into the pile $A$  to make the sum 51. Grogg then chooses the next greatest card with number 49 and put it into pile $B$.
+
+At the end of the game, pile $A$ has all the cards with even numbers and an extra card with number 1. Pile $B$ has all the cards with odd numbers except the card with number 1.
+
+The sum of pile $A$ is $50+48+\cdots +4+2+1=651$, and the sum of pile $B$ is $49+47+\cdots +5+3=624$. The difference is $651-624=27$.
+
+As long as Winnie sticks to her strategy, Grogg has no other strategy to make the difference less than 27.
+
+Therefore, Winnie should win \$27 with the optimal strategy.
+\end{proof}
+
+
+
+
+
+\end{document}  

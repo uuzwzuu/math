@@ -38,7 +38,7 @@
 \fancyhf{}
 \lhead{Name: \textbf{William Zhong}, Username: \textbf{wzsuperb}, ID: \textbf{40819}}
 \rhead{USAMTS, year 34, round 1}
-\rfoot{September 30, 2022}
+\rfoot{October 10, 2022}
 
 
 \begin{document}
@@ -109,7 +109,7 @@ Assuming $A_n=r\cdot 2^n, r \in \mathbb{Z^+}$, there are 2 cases to discuss:
 \item Case 2: $r$ is odd. Denoting $r=2t+1$, then we have $A_n=r\cdot 2^n=(2t+1)\cdot 2^n $. Since $A_{n+1}=a_{n+1}\cdot 2022^n+A_n=a_{n+1}\cdot 2^n\cdot 1011^n+(2t+1)\cdot2^n$, only when $a_{n+1}=1$ should $A_{n+1}=2^n\cdot 1011^n+(2t+1)\cdot 2^n=2^n\cdot(1011^n+1)+t\cdot 2^{n+1}$ be a multiple of $2^{n+1}$. Notice that $(1011^n+1)$ is even, and hence $2^n\cdot(1011^n+1)$ is a multiple of $2^{n+1}$.
 \end{enumerate} 
 
-The above induction shows that, for any positive integer $k$, we have a $k$-digit number $A_k$ with the properties required. When $k=1000$, we then have $N=A_1000$ that satisfies the properties required.
+The above induction shows that, for any positive integer $k$, we have a $k$-digit number $A_k$ with the properties required. When $k=1000$, we then have $N=A_{1000}$ that satisfies the properties required.
 
 Given $A_n=r\cdot 2^n$, the parity of $r$ uniquely determines $a_{n+1}$. If $A_n$ is unique, then $A_{n+1}$ is unique. Since $A_1=2$ is unique, by induction we know $A_n$ is unique. Therefore, $N=A_{1000}$ is unique.
 
@@ -137,8 +137,26 @@ As long as Winnie sticks to her strategy, Grogg has no other strategy to make th
 Therefore, Winnie should win \$27 with the optimal strategy.
 \end{proof}
 
+\newpage
+\section{Problem 5/1/34}
 
+(a) For any sixish integer $x=p(p+6)$, where $p$ and $p+6$ are prime numbers, we have 
+\begin{align*}
+g(x) & =f(x)=1^2+p^2+(p+6)^2+x^2\\
+&=x^2+2p^2+12p+37\\
+&=x^2+2p(p+6)+37\\
+&=x^2+2x+37
+\end{align*}
 
-
+Apparently, $g(x) = x^2 + 2x + 37$ is irreducible. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 
 \end{document}  

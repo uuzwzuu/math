@@ -1,0 +1,105 @@
+\documentclass[11pt, oneside]{article}   	% use "amsart" instead of "article" for AMSLaTeX format
+
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=20mm,
+ top=30mm,
+ bottom=25mm, 
+ }
+ 
+%\usepackage{geometry}                		% See geometry.pdf to learn the layout options. There are lots.
+%\geometry{letterpaper}                   		% ... or a4paper or a5paper or ... 
+%\geometry{landscape}                		% Activate for rotated page geometry
+%\usepackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}				% Use pdf, png, jpg, or eps§ with pdflatex; use eps in DVI mode
+								% TeX will automatically convert eps --> pdf in pdflatex		
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{fancyhdr}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{enumerate}
+\usepackage{arcs}
+\usepackage{array}
+\usepackage{tabularx} 
+\usepackage{tikz}
+%SetFonts
+
+%SetFonts
+
+\usepackage[inline]{asymptote}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Name: \textbf{William Zhong}, Username: \textbf{wzsuperb}, ID: \textbf{40819}}
+\rhead{USAMTS, year 34, round 2}
+\rfoot{October 10, 2022}
+
+
+\begin{document}
+%\maketitle
+
+\section{Problem 1/2/34}
+\vspace{20pt}
+
+\begin{center}
+\begin{asy}
+size(10cm);
+
+
+void fillbox(pair a) {
+    fill(box(a, a+(1,1)), mediumgray);
+}
+
+pair [] p = {(0,0), (2, 2), (2,1), (2,-1), (3,3), (3,2), (3,-3), (4,1), (4,0), (4,-1), (4, -2), (5,1)};
+
+for(int i=0; i<p.length; ++i) {
+    fillbox(p[i]);
+}
+
+void drawbox(pair a, int x){
+    draw(box(a, a+(1,1)));
+    label(string(x), a+(0.5,0.5));
+}
+
+int [] arr = {16, 24, 6, 17, 25, 12, 3, 8, 18, 23, 11, 5, 13, 4, 9, 19, 14, 15, 7, 20, 23, 2, 1, 10, 21};
+
+int counter = 0;
+for(int i=0; i<4; ++i) {
+    for(int j=0; j<2*i+1; ++j){
+          drawbox((j+3-i, 3-i), arr[counter]);
+          ++ counter;
+    }
+}
+
+for(int i=0; i<3; ++i) {
+    for(int j=0; j<2*i+1; ++j){
+          drawbox((j+3-i, i-3), arr[counter]);
+          ++ counter;
+    }
+}
+
+
+\end{asy}
+\end{center} 
+
+\begin{center}
+\includegraphics[width=0.7\textwidth]{imgs/p1.png}
+\end{center}
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+\end{document}  

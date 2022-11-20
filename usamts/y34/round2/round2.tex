@@ -91,13 +91,31 @@ for(int i=0; i<3; ++i) {
 %\begin{center}
 %\includegraphics[width=0.7\textwidth]{imgs/p1.png}
 %\end{center}
+\newpage
+\section{Problem 2/2/34}
 
-
+There are 3 possible outcomes for Grogg: 
+\begin{enumerate}
+\item He eats 0 cookies, and the probability is $(1-p)$.
+\item He eats 1 cookie, and the probability is $p(1-n p^{n-1}(1-p))$.
+\item He eats 2 cookies, and the probability is $n p^n (1-p)$.
+ \end{enumerate}
  
+ The expectation is
+ \begin{align*}
+& 0\cdot(1-p) +1\cdot p(1-n p^{n-1}(1-p)) +2\cdot n p^n (1-p)\\
+= \quad & p + np^n (1-p).
+ \end{align*}
  
+ To make the expected value exactly 1, we have
+ \begin{align*}
+ &p + np^n (1-p)=1\\
+ \Rightarrow \quad &np^n(1-p)=1-p, \quad (0<p<1, 1-p \ne 0)\\
+ \Rightarrow \quad &np^n=1\\
+ \Rightarrow \quad &p=\frac{1}{\sqrt[n]{n}}
+ \end{align*}
  
- 
- 
+ This is possible for all positive integer $n\ge 2$, where $p=\frac{1}{\sqrt[n]{n}}$. Specifically, when $n=2$, $p=\frac{\sqrt{2}}{2}$.
  
  
  

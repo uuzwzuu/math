@@ -103,7 +103,7 @@ There are 3 possible outcomes for Grogg:
  
  The expectation is
  \begin{align*}
-& 0\cdot(1-p) +1\cdot p(1-n p^{n-1}(1-p)) +2\cdot n p^n (1-p)\\
+& 0\cdot(1-p) +1\cdot p\left(1-n p^{n-1}(1-p)\right) +2\cdot n p^n (1-p)\\
 = \quad & p + np^n (1-p).
  \end{align*}
  
@@ -127,6 +127,10 @@ We claim that Lizzie can win the game for any positive composite number $n\ge 4$
 We give the proof in two steps:
 \begin{enumerate}
 \item We show that Lizzie can win the game for any positive composite number $n\ge 4$. Let $n=ab$, where $ a, b\ge 2, a, b\in \mathbb{Z^+}$. Lizzie can first divide the $n$ numbers into $a$ groups, each of which has $b$ numbers. Lizzie calculate the average of each group and replace numbers in each group with their corresponding averages. Assume the average for group $i$ $(1\le i \le a)$ is $x_i$, Lizzie can then regroup the $n$ numbers into $b$ groups, each of which has $a$ numbers $x_1, x_2,\cdots, x_a$. Taking the average of each of the $b$ groups, Lizzie successfully replaces every number with the average $\frac{1}{a}\cdot\sum^a_{i=1} x_i$.
+
+\item We show that Alex always have a way to make Lizzie lost the game for any prime number $n\ge 3$. First of all, we have to notice that if Lizzie wins the game, the final average should be the mean of all $n$ numbers. This is because Lizzie doesn't change the sum of the group that she is taking the average for. No matter how many times Lizzie takes average and replaces numbers of any subset of the $n$ numbers, the sum of the $n$ numbers remains the same. If at some point Lizzie manages to make the $n$ numbers equal to $k$, then $nk$ should be the sum of the original $n$ numbers, and therefore, $k$ is the mean of the original $n$ numbers.
+
+For any prime number $n\ge 3$, if Alex chooses $n$ numbers such that their sum equals $n+1$, where there are $(n-1)$ 1s and a 2,  then Lizzie will never win the game. Because Lizzie has to make every number $\frac{n+1}{n}$ to win the game. When Lizzie picks some numbers to take average, she has to choose $m$ numbers, where $m<n$. When she takes the average of the $m$ numbers, the average should be $\frac{m+1}{m}$ or $1$.  Suppose Lizzie gets an average of $a_i$ at the $i$-th time, we have that $a_i=1$ or $a_i=\frac{y_i}{x_i}$, where $x_i$ is a product of integers ranging from 2 to $n-1$. $\frac{y_i}{x_i}$ can never be simplified to $\frac{1}{n}$. Therefore, Lizzie can never get the average of $\frac{n+1}{n}$ to win the game.
 \end{enumerate}
 
 

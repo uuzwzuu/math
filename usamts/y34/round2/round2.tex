@@ -155,7 +155,7 @@ Step 2: Given any two lattice points $(x, y)$ and $(a, b)$ such that $x\equiv a 
 \begin{enumerate}
 \item $(x, y)$ and $(a, b)$  are colored with the same color in step 1. In this case, condition 2 is satisfied, $c_k=4$.
 
-\item $(x, y)$ and $(a, b)$ are colored with different colors in step 1. To make their colors the same, without violating condition 1, we have to color them with a new color. This is because we can always find a lattice point $t = (x+c, y+d)$, where $c=2\cdot \lfloor\frac{a-x}{2}\rfloor, d=2\cdot \lfloor\frac{b-y}{2}\rfloor$, such that $t$ is a neighboring point of $(a, b)$. By condition 1, $t$ should be different in color from $(a, b)$. By condition 2, $(x, y)$ should be in the same color. Therefore, $(x, y)$ and $(a, b)$ should be colored with a new color, and $c_k> 4$. 
+\item $(x, y)$ and $(a, b)$ are colored with different colors in step 1. To make their colors the same, without violating condition 1, we have to color them with a new color. This is because we can always find a lattice point $t = (x+c, y+d)$, where $c=2\cdot \lfloor\frac{a-x}{2}\rfloor, d=2\cdot \lfloor\frac{b-y}{2}\rfloor$, such that $t$ is a neighboring point of $(a, b)$. By condition 1, $t$ should be different in color from $(a, b)$. By condition 2, $(x, y)$ should be in the same color. Therefore, $(x, y)$ and $(a, b)$ should be colored with a new color to make sure $t$ is NOT in the same color as that of $(x,y)$, and thus $c_k> 4$. 
 
 
 \end{enumerate}

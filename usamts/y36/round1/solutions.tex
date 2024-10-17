@@ -1,0 +1,244 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                          %%
+%% USE THIS FILE TO SUBMIT YOUR SOLUTIONS   %%
+%%                                          %%
+%% You must have the usamts.tex file in     %%
+%% the same directory as this file.         %%
+%% You do NOT need to submit this file or   %%
+%% usamts.tex with your solutions.  You     %%
+%% only need to submit the output PDF file. %%
+%%                                          %%
+%% DO NOT ALTER THE FILE usamts.tex         %%
+%%                                          %%
+%% If you have any questions or problems    %%
+%% using this file, or with LaTeX in        %%
+%% general, please go to the LaTeX          %%
+%% forum on the Art Of Problem Solving      %%
+%% web site, and post your problem.         %%
+%%                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% DO NOT ALTER THE FOLLOWING LINES
+\documentclass[11pt, letterpaper]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[pdftex]{graphicx}
+\usepackage{fancyhdr}
+
+\usepackage[inline]{asymptote}
+\usepackage{gensymb}
+
+
+\pagestyle{fancy}
+\begin{document}
+\include{usamts}
+%% DO NOT ALTER THE ABOVE LINES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%% If you would like to use Asymptote within this document (which is optional), 
+%% you can find out how at the following URL:
+%%
+%%   http://www.artofproblemsolving.com/Wiki/index.php/Asymptote:_Advanced_Configuration
+%%
+%% As explained there, you will want to uncomment the line below.  But be
+%% sure to check the website because there are several other steps that must 
+%% be followed.
+%% \usepackage{asymptote}
+
+
+%% Enter your real name here
+%% Example: \realname{David Patrick}
+\realname{William Zhong}
+
+%% Enter your USAMTS username here
+%% Example: \username{DPatrick}
+%% IMPORTANT
+%% If your username contains one of the following characters:
+%%      # $ ~ _ ^ % { } &
+%% then this character must be preceded by a backslash \
+%% for example: if your user name is math_genius, then the line below should be
+%% \username{math\_genius}
+
+\username{wzsuperb}
+
+%% Enter your USAMTS ID# here
+%% Example: \usamtsid{9999}
+\usamtsid{40819}
+
+%% Make sure that the year and round number are correct.
+%% Year 36 is the academic year 2024-2025.
+\usamtsyear{36}
+\usamtsround{1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% All solutions go in between the \begin{solution} and
+%% the \end{solution} corresponding to the problem
+%% number.  
+%%
+%% For example, suppose Problem 2 is 
+%% "Solve for x: x + 3 = 5".
+%% Your solution would look like this:
+%%
+%% \begin{solution}{2}
+%% If $x+3=5$, then subtract 3 from both
+%% sides of the equation to get $x=5-3=2$, so the 
+%% solution is $x=2$.
+%% \end{solution}
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{solution}{1}
+%% Solution to Problem 1 goes here
+
+\begin{center}
+\begin{asy}
+unitsize(24pt);
+pair [] pairs = {(1,0), (1,2), (0,2), (0,4), (1,4), (1,6), (7,6), (7,4), (8,4), (8,2), (7,2), (7,0)};
+
+int n = pairs.length;
+
+for (int i=0; i<n; ++i) 
+{
+    int k = (i + 1) % n;
+    draw(pairs[i] -- pairs[k], linewidth(1pt));
+}
+
+for (int i=1; i<6; ++i)
+{
+    real x1 = 0;
+    real x2 = 8; 
+    
+    if (pairs[i].x > x1) { x1 = pairs[i].x; }
+    if (pairs[n-i-1].x < x2) { x2 = pairs[n-i-1].x; }
+    
+    draw((x1, i) -- (x2, i), dashed);
+} 
+
+draw((1,2)--(1,4), dashed);
+draw((7,2)--(7,4), dashed);
+
+for (int j=2; j<7; ++j) 
+{
+    draw((j,0)--(j,6),dashed);
+}
+
+int [] nums = {
+	0,0,5,0,2,4,2,0,
+	0,2,4,2,0,6,5,0,
+	6,0,3,1,1,3,2,4,
+	3,2,0,1,1,2,0,0,
+	0,5,2,0,2,0,3,0,
+	0,3,4,6,3,5,4,0
+};
+
+for (int i=0; i<6;++i)
+for (int j=0; j<8;++j)
+{
+    int k = i*8 + j;
+    if (nums[k] > 0) 
+    {
+    	label((j+0.5,i+0.5), string(nums[k]));
+    }
+}
+
+\end{asy}
+\end{center}
+
+\end{solution}
+
+\begin{solution}{2}
+%% Solution to Problem 2 goes here
+
+\begin{center}
+\begin{asy}
+unitsize(75pt);
+pair o = (0,0);
+real r = 1;
+
+draw(circle(o, 1));
+real s = sqrt(3)/3; 
+
+pair o1 = (0,s);
+pair a = o1 + s*dir(210);
+pair b = o1 + s*dir(150);
+pair c = o1 + s*dir(90);
+pair d = o1 + s*dir(30);
+pair e = o1 + s*dir(-30);
+
+draw(o -- a -- b -- c -- d -- e -- cycle);
+label("$A$", a, S);
+label("$B$", b, N);
+label("$C$", c, N);
+label("$D$", d, N);
+label("$E$", e, S);
+label("$O$", o, S);
+
+draw(o -- c, blue);
+draw(b -- e, blue);
+draw(a -- d, blue);
+
+draw(o -- b, blue);
+
+label("$K$", o1, SE);
+
+
+
+\end{asy}
+\end{center}
+
+As illustrated above, we have a unit circle $O$ and a regular hexagon $ABCDEO$ together satisfying the conditions of the problem.
+
+Suppose point $K$ is the center of the regular hexagon $ABCDEO$, connecting the 6 vertices with $K$ divides the hexagon into 6 congruent equilaterals. 
+
+To show that $\triangle AKB$ is an equilateral: $BK = AK$ and $\angle BKA = \frac{360\degree}{6} = 60\degree$. Similarly, we can show the other 5 triangles are also equilaterals.
+
+Since $\triangle ABO$ is an isosceles triangle ($AO = AB$) and $AK$ bisects $\angle OAB$ ($\angle OAK = \angle BAK = 60\degree $), we have that $AK \perp BO$ and $AK$ bisects $BO$. Therefore, the area of $\triangle ABK$ 
+$$ \frac{1}{2}\cdot AK \cdot \frac{BO}{2} = \frac{1}{2}\cdot \frac{1}{2\cdot \cos 60\degree}\cdot \frac{1}{2} =\frac{\sqrt{3}}{12},$$
+
+and the area of the hexagon is 
+
+$$6\cdot \frac{\sqrt{3}}{12} = \frac{\sqrt{3}}{2}.$$
+\end{solution}
+
+\begin{solution}{3}
+%% Solution to Problem 3 goes here
+\end{solution}
+
+\begin{solution}{4}
+%% Solution to Problem 4 goes here
+\end{solution}
+
+\begin{solution}{5}
+%% Solution to Problem 5 goes here
+\end{solution}
+
+%%
+%% DO NOT ALTER THE FOLLOWING COMMAND
+\end{document}
+%% DO NOT ALTER THE PREVIOUS COMMAND
+%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                          %%
+%% You may want to run LaTeX on this file   %%
+%% to make sure that it compiles correctly  %%
+%% before you submit it.                    %%
+%%                                          %%
+%% If you run LaTeX on this file before     %%
+%% entering any solutions, the output file  %%
+%% will be blank.  This is normal.          %%
+%%                                          %%
+%% Make sure that the file usamts.tex is    %%
+%% in the same directory as this file.      %%
+%% If the compiler hangs or asks for        %%
+%% fancyhdr.sty when you compile, then go   %%
+%% to the My Forms portion of My USAMTS     %%
+%% at www.usamts.org to download the        %%
+%% fancyhdr.sty file.                       %%
+%%                                          %%
+%% Questions?  Problems?  Go to the LaTeX   %%
+%% forum on www.artofproblemsolving.com     %%
+%%                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
